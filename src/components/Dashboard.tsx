@@ -19,7 +19,7 @@ function Waveform({
 }) {
   const ref = useRef<HTMLCanvasElement | null>(null);
   const activeRef = useRef(active);
-  activeRef.current = active;
+  useEffect(() => { activeRef.current = active; }, [active]);
 
   useEffect(() => {
     const canvas = ref.current;
