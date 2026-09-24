@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 export default function OrbCanvas({ speaking = false }: { speaking?: boolean }) {
   const ref = useRef<HTMLCanvasElement | null>(null);
   const speakingRef = useRef(speaking);
-  speakingRef.current = speaking;
+  useEffect(() => { speakingRef.current = speaking; }, [speaking]);
 
   useEffect(() => {
     const canvas = ref.current;
