@@ -87,7 +87,7 @@ export default function MemorySection() {
   const [queryIdx, setQueryIdx] = useState(0);
   const [labelsOn, setLabelsOn] = useState(true);
   const labelsRef = useRef(true);
-  labelsRef.current = labelsOn;
+  useEffect(() => { labelsRef.current = labelsOn; }, [labelsOn]);
 
   useEffect(() => {
     nodesRef.current = buildNodes();
